@@ -48,7 +48,7 @@ public class BankAccount {
         String accNumber="";
         int summ=0,cnt=0;
         while(cnt<digits) {
-            int number = random.nextInt(-1, 9) + 1;
+            int number = random.nextInt(0, 10);
             summ += number;
             cnt++;
             accNumber+=number;
