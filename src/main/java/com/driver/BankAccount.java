@@ -45,20 +45,19 @@ public class BankAccount {
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
 
-        if(9*digits<sum)
+        if(sum > 9*digits)
             throw new Exception("Account Number can not be generated");
 
         String accNumber="";
         while(sum>=9){
             accNumber+="9";
-            digits--;
             sum-=9;
         }
-        accNumber+=sum;
-        digits--;
-        while (digits>0){
-            accNumber+=0;
-            digits--;
+        if(accNumber.length()<digits)
+        accNumber+=""+sum;
+        //digits--;
+        while (digits>accNumber.length()){
+            accNumber+="0";
         }
         return accNumber;
     }
