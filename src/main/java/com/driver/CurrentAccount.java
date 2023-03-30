@@ -64,18 +64,15 @@ public class CurrentAccount extends BankAccount{
         for(int i=0; i<n; i++) {
             freq[tradeLicenseId.charAt(i) - 'A']++;
         }
-        int i=0,len=0;
-        while(len<n) {
-            int maxIndex = findMax(freq);
-            char ch = (char) ((char) maxIndex + 'A');
-            int maxValue=freq[maxIndex];
-            freq[maxIndex]=0;
-            while (maxValue > 0) {
-                rearranged[i] = ch;
-                len++;
-                i = (i + 2) % n;
-                if (i == 0) i++;
-                maxValue--;
+        int ind=0,len=0;
+        for(int i=0; i<26; i++){
+            char ch=(char)((char)i + 'A');
+            int val=freq[i];
+            while(val>0){
+                rearranged[ind]=ch;
+                ind=(ind+2)%n;
+                if(ind==0) ind++;
+                val--;
             }
         }
 
